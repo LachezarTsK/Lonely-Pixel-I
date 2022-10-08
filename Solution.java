@@ -5,28 +5,28 @@ public class Solution {
     private static final char BLACK_PIXEL = 'B';
 
     public int findLonelyPixel(char[][] picture) {
-        int[] frquencyRows = new int[picture.length];
-        int[] frquencyColumns = new int[picture[0].length];
-        countFrequencyOfBlackPixels(picture, frquencyRows, frquencyColumns);
-        return countNumberOfLonelyBlackPixels(picture, frquencyRows, frquencyColumns);
+        int[] frequencyRows = new int[picture.length];
+        int[] frequencyColumns = new int[picture[0].length];
+        countFrequencyOfBlackPixels(picture, frequencyRows, frequencyColumns);
+        return countNumberOfLonelyBlackPixels(picture, frequencyRows, frequencyColumns);
     }
 
-    private void countFrequencyOfBlackPixels(char[][] picture, int[] frquencyRows, int[] frquencyColumns) {
+    private void countFrequencyOfBlackPixels(char[][] picture, int[] frequencyRows, int[] frequencyColumns) {
         for (int r = 0; r < picture.length; ++r) {
             for (int c = 0; c < picture[0].length; ++c) {
                 if (picture[r][c] == BLACK_PIXEL) {
-                    ++frquencyRows[r];
-                    ++frquencyColumns[c];
+                    ++frequencyRows[r];
+                    ++frequencyColumns[c];
                 }
             }
         }
     }
 
-    private int countNumberOfLonelyBlackPixels(char[][] picture, int[] frquencyRows, int[] frquencyColumns) {
+    private int countNumberOfLonelyBlackPixels(char[][] picture, int[] frequencyRows, int[] frequencyColumns) {
         int numberOfLonelyBlackPixels = 0;
         for (int r = 0; r < picture.length; ++r) {
             for (int c = 0; c < picture[0].length; ++c) {
-                if (picture[r][c] == BLACK_PIXEL && frquencyRows[r] == 1 && frquencyColumns[c] == 1) {
+                if (picture[r][c] == BLACK_PIXEL && frequencyRows[r] == 1 && frequencyColumns[c] == 1) {
                     ++numberOfLonelyBlackPixels;
                 }
             }
