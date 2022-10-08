@@ -9,29 +9,29 @@ class Solution {
 
 public:
     int findLonelyPixel(vector<vector<char>>&picture) {
-        vector<int> frquencyRows(picture.size());
-        vector<int> frquencyColumns(picture[0].size());
-        countFrequencyOfBlackPixels(picture, frquencyRows, frquencyColumns);
-        return countNumberOfLonelyBlackPixels(picture, frquencyRows, frquencyColumns);
+        vector<int> frequencyRows(picture.size());
+        vector<int> frequencyColumns(picture[0].size());
+        countFrequencyOfBlackPixels(picture, frequencyRows, frequencyColumns);
+        return countNumberOfLonelyBlackPixels(picture, frequencyRows, frequencyColumns);
     }
 
 private:
-    void countFrequencyOfBlackPixels(const vector<vector<char>>&picture, vector<int>& frquencyRows, vector<int>& frquencyColumns) const {
+    void countFrequencyOfBlackPixels(const vector<vector<char>>&picture, vector<int>& frequencyRows, vector<int>& frequencyColumns) const {
         for (int r = 0; r < picture.size(); ++r) {
             for (int c = 0; c < picture[0].size(); ++c) {
                 if (picture[r][c] == BLACK_PIXEL) {
-                    ++frquencyRows[r];
-                    ++frquencyColumns[c];
+                    ++frequencyRows[r];
+                    ++frequencyColumns[c];
                 }
             }
         }
     }
 
-    int countNumberOfLonelyBlackPixels(const vector<vector<char>>&picture, const vector<int>& frquencyRows, const vector<int>& frquencyColumns) const {
+    int countNumberOfLonelyBlackPixels(const vector<vector<char>>&picture, const vector<int>& frequencyRows, const vector<int>& frequencyColumns) const {
         int numberOfLonelyBlackPixels = 0;
         for (int r = 0; r < picture.size(); ++r) {
             for (int c = 0; c < picture[0].size(); ++c) {
-                if (picture[r][c] == BLACK_PIXEL && frquencyRows[r] == 1 && frquencyColumns[c] == 1) {
+                if (picture[r][c] == BLACK_PIXEL && frequencyRows[r] == 1 && frequencyColumns[c] == 1) {
                     ++numberOfLonelyBlackPixels;
                 }
             }
