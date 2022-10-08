@@ -6,25 +6,25 @@
 var findLonelyPixel = function (picture) {
     this.WHITE_PIXEL = 'W';
     this.BLACK_PIXEL = 'B';
-    this.frquencyRows = new Array(picture.length).fill(0);
-    this.frquencyColumns = new Array(picture[0].length).fill(0);
+    this.frequencyRows = new Array(picture.length).fill(0);
+    this.frequencyColumns = new Array(picture[0].length).fill(0);
 
-    countFrequencyOfBlackPixels(picture, frquencyRows, frquencyColumns);
-    return countNumberOfLonelyBlackPixels(picture, frquencyRows, frquencyColumns);
+    countFrequencyOfBlackPixels(picture, frequencyRows, frequencyColumns);
+    return countNumberOfLonelyBlackPixels(picture, frequencyRows, frequencyColumns);
 };
 
 /**
  * @param {character[][]} picture
- * @param {number[]} frquencyRows 
- * @param {number[]} frquencyColumns
+ * @param {number[]} frequencyRows 
+ * @param {number[]} frequencyColumns
  * @return {void}
  */
-function countFrequencyOfBlackPixels(picture, frquencyRows, frquencyColumns) {
+function countFrequencyOfBlackPixels(picture, frequencyRows, frequencyColumns) {
     for (let r = 0; r < picture.length; ++r) {
         for (let c = 0; c < picture[0].length; ++c) {
             if (picture[r][c] === this.BLACK_PIXEL) {
-                ++frquencyRows[r];
-                ++frquencyColumns[c];
+                ++frequencyRows[r];
+                ++frequencyColumns[c];
             }
         }
     }
@@ -32,15 +32,15 @@ function countFrequencyOfBlackPixels(picture, frquencyRows, frquencyColumns) {
 
 /**
  * @param {character[][]} picture
- * @param {number[]} frquencyRows 
- * @param {number[]} frquencyColumns
+ * @param {number[]} frequencyRows 
+ * @param {number[]} frequencyColumns
  * @return {number}
  */
-function countNumberOfLonelyBlackPixels(picture, frquencyRows, frquencyColumns) {
+function countNumberOfLonelyBlackPixels(picture, frequencyRows, frequencyColumns) {
     let numberOfLonelyBlackPixels = 0;
     for (let r = 0; r < picture.length; ++r) {
         for (let c = 0; c < picture[0].length; ++c) {
-            if (picture[r][c] === this.BLACK_PIXEL && frquencyRows[r] === 1 && frquencyColumns[c] === 1) {
+            if (picture[r][c] === this.BLACK_PIXEL && frequencyRows[r] === 1 && frequencyColumns[c] === 1) {
                 ++numberOfLonelyBlackPixels;
             }
         }
